@@ -1,0 +1,47 @@
+ext {
+    android = [
+            compileSdkVersion       : 27,
+            buildToolsVersion       : "27.0.0",
+            minSdkVersion           : 21,
+            targetSdkVersion        : 27,
+            versionCode             : 1,
+            versionName             : "1.0.1",
+            renderscriptTargetApi   : 21
+    ]
+
+    version = [
+
+            fragmentationVersion    : "1.1.9",
+            butterknifeVersion      : "8.8.1",
+            daggerVersion           : "2.15",
+            supportLibraryVersion   : "27.0.0",
+    ]
+
+    dependencies = [
+            //base
+            "design"                            : "com.android.support:design:${version["supportLibraryVersion"]}",
+            "appcompat-v7"                      : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
+            "constraint-layout"                 : "com.android.support.constraint:constraint-layout:1.0.2",
+
+            //di
+            "dagger"                            : "com.google.dagger:dagger:${version["daggerVersion"]}",
+            "dagger-compiler"                   : "com.google.dagger:dagger-compiler:${version["daggerVersion"]}",
+            "dagger-android"                    : "com.google.dagger:dagger-android:${version["daggerVersion"]}",
+            "dagger-android-support"            : "com.google.dagger:dagger-android-support:${version["daggerVersion"]}",
+            "dagger-android-processor"          : "com.google.dagger:dagger-android-processor:${version["daggerVersion"]}",
+            "butterknife"                       : "com.jakewharton:butterknife:${version["butterknifeVersion"]}",
+            "butterknife-compiler"              : "com.jakewharton:butterknife-compiler:${version["butterknifeVersion"]}",
+
+            //other
+            "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
+            "fragmentation-swipeback"           : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
+            "lottie"                            : "com.airbnb.android:lottie:2.3.0",
+
+            //rx
+            "rxjava"                            : "io.reactivex.rxjava2:rxjava:2.1.5",
+            "rxandroid"                         : "io.reactivex.rxjava2:rxandroid:2.0.1",
+            "rxbinding"                         : "com.jakewharton.rxbinding2:rxbinding:2.1.0",
+            "rxpermissions"                     : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar",
+    ]
+
+}
