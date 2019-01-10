@@ -4,16 +4,16 @@
     package="mrzhang.com.wanandroid.wanandroidstudy">
 
     <application
-        android:name=".app.WanAndroidApp"
+        android:name="mrzhang.com.wanandroid.study.app.WanAndroidApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name="mrzhang.com.wanandroid.study.MainActivity">
         </activity>
         <activity
-            android:name=".ui.main.activity.SplashActivity"
+            android:name="mrzhang.com.wanandroid.study.ui.main.activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
