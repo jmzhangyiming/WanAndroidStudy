@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">WanAndroidStudy</string>
     <string name="title_activity_splash">SplashActivity</string>
+
+    // login
+    <string name="login_in">Login</string>
+    <string name="my_collect">Collect</string>
+    <string name="about_us">About Us</string>
+    <string name="logout">Logout</string>
+
+    // setting
+    <string name="setting">Setting</string>
 </resources>
