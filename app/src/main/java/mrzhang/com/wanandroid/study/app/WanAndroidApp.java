@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
-import mrzhang.com.wanandroid.wanandroidstudy.di.component.DaggerAppComponent;
+import mrzhang.com.wanandroid.study.di.component.DaggerAppComponent;
 
 /**
  * @author mrzhang

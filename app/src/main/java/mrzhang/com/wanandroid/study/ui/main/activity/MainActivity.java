@@ -1,4 +1,4 @@
-package mrzhang.com.wanandroid.study;
+package mrzhang.com.wanandroid.study.ui.main.activity;
 
 import android.os.Bundle;
 

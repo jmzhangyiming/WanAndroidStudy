@@ -3,6 +3,7 @@ package mrzhang.com.wanandroid.study.di.module;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import mrzhang.com.wanandroid.study.di.component.BaseActivityComponent;
+import mrzhang.com.wanandroid.study.ui.main.activity.MainActivity;
 import mrzhang.com.wanandroid.study.ui.main.activity.SplashActivity;
 
 /**
@@ -13,6 +14,9 @@ import mrzhang.com.wanandroid.study.ui.main.activity.SplashActivity;
 public abstract class AbstractAllActivityModule {
 
     @ContributesAndroidInjector(modules = SplashActivityModule.class)
-    abstract SplashActivity contributeMainActivitytInjector();
+    abstract SplashActivity contributeSplashActivitytInjector();
+
+    @ContributesAndroidInjector(modules = MainActivityModule.class)
+    abstract MainActivity contributeMainActivitytInjector();
 
 }

@@ -5,7 +5,6 @@ import android.content.Intent;
 import com.airbnb.lottie.LottieAnimationView;
 
 import butterknife.BindView;
-import mrzhang.com.wanandroid.study.MainActivity;
 import mrzhang.com.wanandroid.wanandroidstudy.R;
 import mrzhang.com.wanandroid.study.app.WanAndroidApp;
 import mrzhang.com.wanandroid.study.base.activity.BaseActivity;
