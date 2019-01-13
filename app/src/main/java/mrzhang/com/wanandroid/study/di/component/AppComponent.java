@@ -7,6 +7,7 @@ import dagger.android.AndroidInjectionModule;
 import dagger.android.support.AndroidSupportInjectionModule;
 import mrzhang.com.wanandroid.study.di.module.AbstractAllActivityModule;
 import mrzhang.com.wanandroid.study.app.WanAndroidApp;
+import mrzhang.com.wanandroid.study.di.module.AbstractAllFragmentModule;
 
 /**
  * @author mrzhang
@@ -16,7 +17,8 @@ import mrzhang.com.wanandroid.study.app.WanAndroidApp;
 @Component(modules = {
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
-        AbstractAllActivityModule.class})
+        AbstractAllActivityModule.class,
+        AbstractAllFragmentModule.class})
 public interface AppComponent {
     /**
      * 注入Application实例

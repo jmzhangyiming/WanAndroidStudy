@@ -50,4 +50,8 @@ dependencies {
     implementation rootProject.ext.dependencies["rxandroid"]
     implementation rootProject.ext.dependencies["rxbinding"]
     implementation rootProject.ext.dependencies["rxpermissions"]
+
+    // ui
+    implementation rootProject.ext.dependencies["SmartRefreshLayout"]
+    implementation rootProject.ext.dependencies["SmartRefreshHeader"]
 }
