@@ -8,4 +8,6 @@
     <color name="title_black">#222222</color>
     <color name="transparent">#00000000</color>
     <color name="drawer_item_bg_n">#fffff9</color>
+    <color name="drawer_item_bg_p">#e8e8e8</color>
+    <color name="colorCard">#FFFFFF</color>
 </resources>

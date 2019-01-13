@@ -1,7 +1,11 @@
 package mrzhang.com.wanandroid.study.ui.main.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
+import butterknife.BindView;
 import mrzhang.com.wanandroid.wanandroidstudy.R;
 import mrzhang.com.wanandroid.study.base.activity.BaseActivity;
 import mrzhang.com.wanandroid.study.contract.main.MainContract;
@@ -13,20 +17,18 @@ import mrzhang.com.wanandroid.study.presenter.main.MainPresent;
   */
 public class MainActivity extends BaseActivity<MainPresent> implements MainContract.View {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
+    @BindView(R.id.nav_view)
+    NavigationView mNavigationView;
+    @BindView(R.id.common_toolbar_title_tv)
+    TextView mTitleTv;
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.activity_main;
     }
 
     @Override
     protected void initToolbar() {
-
+        mTitleTv.setText(R.string.home_pager);
     }
 
     @Override

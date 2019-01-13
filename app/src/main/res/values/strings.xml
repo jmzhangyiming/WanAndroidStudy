@@ -10,4 +10,14 @@
 
     // setting
     <string name="setting">Setting</string>
+
+    <string name="home_pager">Home pager</string>
+
+    <string name="knowledge_hierarchy">Knowledge hierarchy</string>
+
+
+    // commen
+    <string name="wx_article">WX article</string>
+    <string name="navigation">Navigation</string>
+    <string name="project">Project</string>
 </resources>
