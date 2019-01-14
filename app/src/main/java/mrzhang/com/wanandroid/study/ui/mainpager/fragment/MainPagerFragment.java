@@ -1,4 +1,4 @@
-package mrzhang.com.wanandroid.study.ui.main.mainpager.fragment;
+package mrzhang.com.wanandroid.study.ui.mainpager.fragment;
 
 import mrzhang.com.wanandroid.study.base.fragment.BaseRootFragment;
 import mrzhang.com.wanandroid.study.contract.mainpager.MainPagerContract;

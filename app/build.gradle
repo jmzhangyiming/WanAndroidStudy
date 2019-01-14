@@ -26,6 +26,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // base
     implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["cardview-v7"]
     implementation rootProject.ext.dependencies["constraint-layout"]
     implementation rootProject.ext.dependencies["design"]
     testImplementation 'junit:junit:4.12'

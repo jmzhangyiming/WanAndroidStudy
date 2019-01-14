@@ -22,6 +22,7 @@ ext {
             //base
             "design"                            : "com.android.support:design:${version["supportLibraryVersion"]}",
             "appcompat-v7"                      : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
+            "cardview-v7"                       : "com.android.support:cardview-v7:${version["supportLibraryVersion"]}",
             "constraint-layout"                 : "com.android.support.constraint:constraint-layout:1.0.2",
 
             //di
