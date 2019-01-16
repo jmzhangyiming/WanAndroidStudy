@@ -9,15 +9,20 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import mrzhang.com.wanandroid.study.base.present.BasePresent;
 import mrzhang.com.wanandroid.study.contract.main.SplashContract;
+import mrzhang.com.wanandroid.study.core.DataManager;
 
 /**
  * @author mrzhang
  * @date 2019/1/5
  */
 public class SplashPresenter extends BasePresent<SplashContract.View> implements SplashContract.Present {
-    @Inject
-    SplashPresenter() {
 
+    private DataManager mDataManager;
+
+    @Inject
+    SplashPresenter(DataManager dataManager) {
+        super(dataManager);
+        this.mDataManager = dataManager;
     }
 
     @Override

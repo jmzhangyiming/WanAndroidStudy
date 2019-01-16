@@ -16,6 +16,11 @@
     <string name="knowledge_hierarchy">Knowledge hierarchy</string>
     <string name="setting_normal">General settings</string>
     <string name="setting_cache">Automatic cache</string>
+    <string name="setting_image">No Pic model</string>
+    <string name="setting_night">Night mode</string>
+    <string name="setting_other">Other settings</string>
+    <string name="setting_feedback">Feedback</string>
+    <string name="setting_clear">Clear cache</string>
 
 
     // commen

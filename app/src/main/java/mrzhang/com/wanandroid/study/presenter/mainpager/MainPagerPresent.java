@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import mrzhang.com.wanandroid.study.base.present.BasePresent;
 import mrzhang.com.wanandroid.study.contract.mainpager.MainPagerContract;
+import mrzhang.com.wanandroid.study.core.DataManager;
 
 /**
  * @author mrzhang
@@ -11,9 +12,12 @@ import mrzhang.com.wanandroid.study.contract.mainpager.MainPagerContract;
  */
 public class MainPagerPresent extends BasePresent<MainPagerContract.View> implements MainPagerContract.Present {
 
-    @Inject
-    MainPagerPresent() {
+    private DataManager mDataManager;
 
+    @Inject
+    MainPagerPresent(DataManager dataManager) {
+        super(dataManager);
+        this.mDataManager = dataManager;
     }
 
 }

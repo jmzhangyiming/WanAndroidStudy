@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import mrzhang.com.wanandroid.study.base.present.BasePresent;
 import mrzhang.com.wanandroid.study.contract.main.MainContract;
+import mrzhang.com.wanandroid.study.core.DataManager;
 
 /**
  * @author mrzhang
@@ -11,9 +12,12 @@ import mrzhang.com.wanandroid.study.contract.main.MainContract;
  */
 public class MainPresent extends BasePresent<MainContract.View> implements MainContract.Presenter {
 
-    @Inject
-    MainPresent() {
+    private DataManager mDataManager;
 
+    @Inject
+    MainPresent(DataManager dataManager) {
+        super(dataManager);
+        this.mDataManager = dataManager;
     }
 
     @Override

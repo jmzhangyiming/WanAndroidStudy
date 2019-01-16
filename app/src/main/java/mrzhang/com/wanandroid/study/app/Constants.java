@@ -1,5 +1,7 @@
 package mrzhang.com.wanandroid.study.app;
 
+import java.io.File;
+
 /**
  * @author mrzhang
  * @date 2019/1/13
@@ -23,5 +25,11 @@ public class Constants {
 
     public static final int TYPE_SETTING = 6;
 
+    /**
+     * Path
+     */
+    public static final String PATH_DATA = WanAndroidApp.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
+
+    public static final String PATH_CACHE = PATH_DATA + "/NetCache";
 
 }

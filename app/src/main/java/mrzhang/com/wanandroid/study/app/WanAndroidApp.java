@@ -9,6 +9,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import mrzhang.com.wanandroid.study.di.component.DaggerAppComponent;
+import mrzhang.com.wanandroid.study.di.module.AppModule;
 
 /**
  * @author mrzhang
@@ -18,6 +19,7 @@ public class WanAndroidApp extends Application implements HasActivityInjector{
 
     @Inject
     DispatchingAndroidInjector<Activity> mAndroidInjector;
+    private static WanAndroidApp instance;
     // 是否是第一次启动
     public static boolean isFirstRun = true;
 
@@ -26,13 +28,17 @@ public class WanAndroidApp extends Application implements HasActivityInjector{
         return mAndroidInjector;
     }
 
+    public static WanAndroidApp getInstance() {
+        return instance;
+    }
     @Override
     public void onCreate() {
         super.onCreate();
         DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
                 .build().inject(this);
 
-
+        instance = this;
 
     }
 }
