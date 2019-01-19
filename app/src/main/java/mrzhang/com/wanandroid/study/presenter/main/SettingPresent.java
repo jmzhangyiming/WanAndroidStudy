@@ -21,7 +21,13 @@ public class SettingPresent extends BasePresent<SettingContract.View> implements
     }
 
 
+    @Override
+    public void setNightModeState(boolean b) {
+        mDataManager.setNightModeState(b);
+    }
 
-
-
+    @Override
+    public boolean getNightModeState() {
+        return mDataManager.getNightModeState();
+    }
 }

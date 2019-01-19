@@ -20,4 +20,13 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper{
         this.mPreferenceHelper = preferenceHelper;
     }
 
+    @Override
+    public boolean getNightModeState() {
+        return mPreferenceHelper.getNightModeState();
+    }
+
+    @Override
+    public void setNightModeState(boolean b) {
+        mPreferenceHelper.setNightModeState(b);
+    }
 }

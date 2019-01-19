@@ -36,6 +36,12 @@ public abstract class AbstractSimpleFragment extends SupportFragment {
         }
     }
 
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        initEventAndData();
+    }
+
     /**
      * 获取当前Activity的UI布局
      * @return

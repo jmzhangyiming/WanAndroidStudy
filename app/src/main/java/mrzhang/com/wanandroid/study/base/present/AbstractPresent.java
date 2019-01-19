@@ -19,4 +19,11 @@ public interface AbstractPresent<T extends AbstractView> {
      * 回收view
      */
     void detach();
+
+    /**
+     * Get night mode state
+     *
+     * @return if is night mode
+     */
+    boolean getNightModeState();
 }

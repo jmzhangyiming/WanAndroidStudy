@@ -32,4 +32,10 @@ public class Constants {
 
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
 
+    public static final String MY_SHARED_PREFERENCE = "my_shared_preference";
+
+    /**
+     * Shared Preference key
+     */
+    public static final String NIGHT_MODE_STATE = "night_mode_state";
 }

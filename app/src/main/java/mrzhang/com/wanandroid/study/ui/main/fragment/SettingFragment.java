@@ -1,7 +1,9 @@
 package mrzhang.com.wanandroid.study.ui.main.fragment;
 
 import android.support.v7.widget.AppCompatCheckBox;
+import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,7 +21,8 @@ import mrzhang.com.wanandroid.wanandroidstudy.R;
  * @author mrzhang
  * @date 2019/1/13
  */
-public class SettingFragment extends BaseRootFragment<SettingPresent> implements SettingContract.View{
+public class SettingFragment extends BaseRootFragment<SettingPresent> implements SettingContract.View
+        ,CompoundButton.OnCheckedChangeListener{
 
     @BindView(R.id.cb_setting_cache)
     AppCompatCheckBox mCbSettingCache;
@@ -55,6 +58,11 @@ public class SettingFragment extends BaseRootFragment<SettingPresent> implements
     @Override
     protected void initEventAndData() {
         cacheFile = new File(Constants.PATH_CACHE);
+        mCbSettingNight.setChecked(mPresent.getNightModeState());
+        Log.i("test", mPresent.getNightModeState() + "");
+        mCbSettingCache.setOnCheckedChangeListener(this);
+        mCbSettingImage.setOnCheckedChangeListener(this);
+        mCbSettingNight.setOnCheckedChangeListener(this);
 
     }
 
@@ -68,6 +76,22 @@ public class SettingFragment extends BaseRootFragment<SettingPresent> implements
 //                clearCache();
                 break;
             default:
+                break;
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        switch (compoundButton.getId()) {
+            case R.id.cb_setting_cache:
+
+                break;
+            case R.id.cb_setting_image:
+
+                break;
+            case R.id.cb_setting_night:
+                mPresent.setNightModeState(b);
+                Log.i("test", mPresent.getNightModeState() + "");
                 break;
         }
     }

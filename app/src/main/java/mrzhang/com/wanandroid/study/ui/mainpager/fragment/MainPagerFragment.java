@@ -1,5 +1,7 @@
 package mrzhang.com.wanandroid.study.ui.mainpager.fragment;
 
+import android.util.Log;
+
 import mrzhang.com.wanandroid.study.base.fragment.BaseRootFragment;
 import mrzhang.com.wanandroid.study.contract.mainpager.MainPagerContract;
 import mrzhang.com.wanandroid.study.presenter.mainpager.MainPagerPresent;

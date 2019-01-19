@@ -19,5 +19,5 @@ public class MainPagerPresent extends BasePresent<MainPagerContract.View> implem
         super(dataManager);
         this.mDataManager = dataManager;
     }
-
+    
 }

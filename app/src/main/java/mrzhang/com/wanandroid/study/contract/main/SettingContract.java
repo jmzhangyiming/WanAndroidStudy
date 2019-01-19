@@ -15,6 +15,12 @@ public interface SettingContract {
 
     interface Prensent extends AbstractPresent<View> {
 
+        /**
+         * Set night mode state
+         *
+         * @param b current night mode state
+         */
+        void setNightModeState(boolean b);
     }
 
 }

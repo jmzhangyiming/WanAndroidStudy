@@ -6,4 +6,19 @@ package mrzhang.com.wanandroid.study.core.prefs;
  */
 public interface PreferenceHelper {
 
+    /**
+     * Get night mode state
+     *
+     * @return if is night mode
+     */
+    boolean getNightModeState();
+
+    /**
+     * Set night mode state
+     *
+     * @param b current night mode state
+     */
+    void setNightModeState(boolean b);
+
+
 }

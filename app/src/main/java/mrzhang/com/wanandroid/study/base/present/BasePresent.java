@@ -29,12 +29,16 @@ public class BasePresent<T extends AbstractView> implements AbstractPresent<T> {
         this.mView = null;
     }
 
+    @Override
+    public boolean getNightModeState() {
+        return mDataManager.getNightModeState();
+    }
+
     protected void addSubscribe(Disposable disposable) {
         if (null == compositeDisposable) {
             compositeDisposable = new CompositeDisposable();
         }
         compositeDisposable.add(disposable);
     }
-
 
 }
