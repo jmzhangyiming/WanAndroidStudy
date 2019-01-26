@@ -5,10 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -98,8 +100,37 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
         initDrawerLayout();
     }
 
+    // 设置标题栏左边显示左侧侧滑栏按键点击事件和图标变化，滑动侧滑栏变化左右界面变化
     private void initDrawerLayout() {
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                //获取mDrawerLayout中的第一个子布局，也就是布局中的CoordinatorLayout
+                //获取抽屉的view
+                View mContent = mDrawerLayout.getChildAt(0);
+                float scale = 1 - slideOffset;
+                float endScale = 0.8f + scale * 0.2f;
+                float startScale = 1 - 0.3f * scale;
 
+                //设置左边菜单滑动后的占据屏幕大小
+                drawerView.setScaleX(startScale);
+                drawerView.setScaleY(startScale);
+                //设置菜单透明度
+                drawerView.setAlpha(0.6f + 0.4f * (1 - scale));
+
+                //设置内容界面水平和垂直方向偏转量
+                //在滑动时内容界面的宽度为 屏幕宽度减去菜单界面所占宽度
+                mContent.setTranslationX(drawerView.getMeasuredWidth() * (1 - scale));
+                //设置内容界面操作无效（比如有button就会点击无效）
+                mContent.invalidate();
+                //设置右边菜单滑动后的占据屏幕大小
+                mContent.setScaleX(endScale);
+                mContent.setScaleY(endScale);
+            }
+        };
+        toggle.syncState();
+        mDrawerLayout.addDrawerListener(toggle);
     }
 
     private void initBottomNavigationView() {
@@ -109,12 +140,9 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
     private void initNavigationView() {
         mUsTv = mNavigationView.getHeaderView(0).findViewById(R.id.nav_header_login_tv);
         mNavigationView.getMenu().findItem(R.id.nav_item_wan_android)
-                .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        startMainPager();
-                        return true;
-                    }
+                .setOnMenuItemClickListener(menuItem -> {
+                    startMainPager();
+                    return true;
                 });
         mNavigationView.getMenu().findItem(R.id.nav_item_setting)
                 .setOnMenuItemClickListener(menuItem -> {
@@ -131,7 +159,10 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
     }
 
     private void startMainPager() {
-
+        mTitleTv.setText(getString(R.string.home_pager));
+        mBottomNavigationView.setVisibility(View.VISIBLE);
+        mBottomNavigationView.setSelectedItemId(R.id.tab_main_pager);
+        mDrawerLayout.closeDrawers();
     }
 
     @Override
@@ -194,12 +225,21 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
         // 去掉标题
         actionBar.setDisplayShowTitleEnabled(false);
         mTitleTv.setText(R.string.home_pager);
-
+        mToolbar.setNavigationOnClickListener(view -> onBackPressedSupport());
 
     }
 
     @Override
     protected void initEventAndData() {
 
+    }
+
+    @Override
+    public void onBackPressedSupport() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            pop();
+        } else {
+            ActivityCompat.finishAfterTransition(this);
+        }
     }
 }

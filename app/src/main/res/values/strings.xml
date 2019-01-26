@@ -26,5 +26,6 @@
     <string name="project">Project</string>
     <string name="useful_sites">Useful Sites</string>
     <string name="action_search">Search</string>
-
+    <string name="navigation_drawer_open">Open drawer</string>
+    <string name="navigation_drawer_close">Close drawer</string>
 </resources>

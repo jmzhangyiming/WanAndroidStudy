@@ -27,4 +27,6 @@
     <string name="project">项目</string>
     <string name="useful_sites">常用网站</string>
     <string name="action_search">搜索</string>
+    <string name="navigation_drawer_open">打开侧栏</string>
+    <string name="navigation_drawer_close">关闭侧栏</string>
 </resources>
