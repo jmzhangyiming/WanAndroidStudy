@@ -38,4 +38,12 @@ public class Constants {
      * Shared Preference key
      */
     public static final String NIGHT_MODE_STATE = "night_mode_state";
+
+    /**
+     * Intent params
+     */
+    public static final String ARG_PARAM1 = "param1";
+
+    public static final String ARG_PARAM2 = "param2";
+
 }

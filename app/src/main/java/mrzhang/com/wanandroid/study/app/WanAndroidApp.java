@@ -2,6 +2,7 @@ package mrzhang.com.wanandroid.study.app;
 
 import android.app.Activity;
 import android.app.Application;
+import android.support.v7.app.AppCompatDelegate;
 
 import javax.inject.Inject;
 
@@ -22,6 +23,12 @@ public class WanAndroidApp extends Application implements HasActivityInjector{
     private static WanAndroidApp instance;
     // 是否是第一次启动
     public static boolean isFirstRun = true;
+
+
+    static {
+        AppCompatDelegate.setDefaultNightMode(
+                AppCompatDelegate.MODE_NIGHT_NO);
+    }
 
     @Override
     public AndroidInjector<Activity> activityInjector() {

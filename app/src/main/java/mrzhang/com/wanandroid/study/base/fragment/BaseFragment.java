@@ -50,4 +50,16 @@ public abstract class BaseFragment<T extends AbstractPresent> extends AbstractSi
             mPresent = null;
         }
     }
+
+    @Override
+    public void showErrorMsg(String errorMsg) {
+        if (isAdded()) {
+
+        }
+    }
+
+    @Override
+    public void useNightMode(boolean isNightMode) {
+
+    }
 }

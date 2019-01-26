@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="mrzhang.com.wanandroid.study.ui.main.activity.MainActivity"></activity>
+        <activity android:name="mrzhang.com.wanandroid.study.ui.main.activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
         <activity
             android:name="mrzhang.com.wanandroid.study.ui.main.activity.SplashActivity"
             android:screenOrientation="portrait">

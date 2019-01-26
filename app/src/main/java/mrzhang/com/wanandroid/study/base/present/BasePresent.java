@@ -11,7 +11,7 @@ import mrzhang.com.wanandroid.study.core.DataManager;
  */
 public class BasePresent<T extends AbstractView> implements AbstractPresent<T> {
 
-    private T mView;
+    protected T mView;
     private CompositeDisposable compositeDisposable;
     private DataManager mDataManager;
 

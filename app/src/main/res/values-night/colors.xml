@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#0F1010</color>
+    <color name="colorPrimaryDark">#0F1010</color>
+    <color name="colorAccent">#181921</color>
+
+
+    <color name="drawer_item_bg_p">#6b6d72</color>
+    <color name="drawer_item_bg_n">#3e3d3d</color>
+    <color name="colorBackground">#0F1010</color>
+    <color name="colorCard">#202124</color>
+    <color name="comment_text">#dfd8d8</color>
+    <color name="setting_text">#ffffff</color>
+    <color name="yellow">#f2efef</color>
+    <color name="delete_text">#62646b</color>
+    <color name="comment_line">#202124</color>
+
+
+
+</resources>

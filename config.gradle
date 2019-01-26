@@ -39,6 +39,7 @@ ext {
             "fragmentation-swipeback"           : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
             "lottie"                            : "com.airbnb.android:lottie:2.3.0",
             "ByeBurger"                         : "com.github.githubwing:ByeBurger:1.2.3",
+            "logger"                            : "com.orhanobut:logger:2.1.1",
 
             //rx
             "rxjava"                            : "io.reactivex.rxjava2:rxjava:2.1.5",

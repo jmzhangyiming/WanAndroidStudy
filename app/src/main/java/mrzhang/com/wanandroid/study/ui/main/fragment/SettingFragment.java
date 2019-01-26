@@ -13,7 +13,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import mrzhang.com.wanandroid.study.app.Constants;
 import mrzhang.com.wanandroid.study.base.fragment.BaseRootFragment;
+import mrzhang.com.wanandroid.study.component.Rxbus;
 import mrzhang.com.wanandroid.study.contract.main.SettingContract;
+import mrzhang.com.wanandroid.study.core.event.NightModeEvent;
 import mrzhang.com.wanandroid.study.presenter.main.SettingPresent;
 import mrzhang.com.wanandroid.wanandroidstudy.R;
 
@@ -91,6 +93,7 @@ public class SettingFragment extends BaseRootFragment<SettingPresent> implements
                 break;
             case R.id.cb_setting_night:
                 mPresent.setNightModeState(b);
+                Rxbus.getDefault().post(new NightModeEvent(b));
                 Log.i("test", mPresent.getNightModeState() + "");
                 break;
         }

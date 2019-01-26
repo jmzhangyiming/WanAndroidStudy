@@ -73,12 +73,19 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFragments = new ArrayList<>();
-        initPager(false, Constants.TYPE_MAIN_PAGER);
+        if (savedInstanceState == null) {
+            mPresent.setNightModeState(false);
+            initPager(false, Constants.TYPE_MAIN_PAGER);
+        } else {
+            mBottomNavigationView.setSelectedItemId(R.id.tab_main_pager);
+            initPager(true, Constants.TYPE_SETTING);
+        }
+
 
     }
 
     private void initPager(boolean isRecreate, int position) {
-        mMainPagerFragment = MainPagerFragment.getInstance();
+        mMainPagerFragment = MainPagerFragment.getInstance(isRecreate, null);
         mFragments.add(mMainPagerFragment);
         initFragments();
         init();

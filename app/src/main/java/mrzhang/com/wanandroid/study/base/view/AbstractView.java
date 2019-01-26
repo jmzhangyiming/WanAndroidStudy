@@ -8,5 +8,18 @@ package mrzhang.com.wanandroid.study.base.view;
  */
 public interface AbstractView {
 
+    /**
+     * Show error message
+     *
+     * @param errorMsg error message
+     */
+    void showErrorMsg(String errorMsg);
+
+    /**
+     * Use night mode
+     *
+     * @param isNightMode if is night mode
+     */
+    void useNightMode(boolean isNightMode);
 
 }

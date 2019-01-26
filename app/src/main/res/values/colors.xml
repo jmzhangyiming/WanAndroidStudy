@@ -16,4 +16,5 @@
     <color name="yellow">#f39c12</color>
     <color name="delete_text">#cccccc</color>
     <color name="comment_line">#dddddd</color>
+    <color name="black">#333333</color>
 </resources>

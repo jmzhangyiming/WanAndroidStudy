@@ -3,6 +3,7 @@ package mrzhang.com.wanandroid.study.base.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatDelegate;
 
 import javax.inject.Inject;
 
@@ -12,6 +13,7 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 import mrzhang.com.wanandroid.study.base.present.AbstractPresent;
 import mrzhang.com.wanandroid.study.base.view.AbstractView;
+import mrzhang.com.wanandroid.study.utils.logger.CommonUtils;
 
 /**
  * @author mrzhang
@@ -51,5 +53,20 @@ public abstract class BaseActivity<T extends AbstractPresent> extends AbstractSi
             mPresent.detach();
             mPresent = null;
         }
+    }
+
+    @Override
+    public void showErrorMsg(String errorMsg) {
+        CommonUtils.showMessage(this, errorMsg);
+    }
+
+    @Override
+    public void useNightMode(boolean isNightMode) {
+        if (isNightMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        recreate();
     }
 }

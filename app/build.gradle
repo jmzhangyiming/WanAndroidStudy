@@ -45,6 +45,7 @@ dependencies {
     implementation rootProject.ext.dependencies["fragmentation-swipeback"]
     implementation rootProject.ext.dependencies["lottie"]
     implementation rootProject.ext.dependencies["ByeBurger"]
+    implementation rootProject.ext.dependencies["logger"]
 
     //rx
     implementation rootProject.ext.dependencies["rxjava"]
