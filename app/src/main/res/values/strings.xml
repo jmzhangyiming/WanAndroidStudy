@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">WanAndroidStudy</string>
-    <string name="title_activity_splash">SplashActivity</string>
 
     // login
     <string name="login_in">Login</string>
@@ -10,10 +9,6 @@
 
     // setting
     <string name="setting">Setting</string>
-
-    <string name="home_pager">Home pager</string>
-
-    <string name="knowledge_hierarchy">Knowledge hierarchy</string>
     <string name="setting_normal">General settings</string>
     <string name="setting_cache">Automatic cache</string>
     <string name="setting_image">No Pic model</string>
@@ -24,9 +19,12 @@
 
 
     // commen
+    <string name="home_pager">Home pager</string>
+    <string name="knowledge_hierarchy">Knowledge hierarchy</string>
     <string name="wx_article">WX article</string>
     <string name="navigation">Navigation</string>
     <string name="project">Project</string>
     <string name="useful_sites">Useful Sites</string>
     <string name="action_search">Search</string>
+
 </resources>
