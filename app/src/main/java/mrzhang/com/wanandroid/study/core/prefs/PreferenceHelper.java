@@ -20,5 +20,18 @@ public interface PreferenceHelper {
      */
     void setNightModeState(boolean b);
 
+    /**
+     * Set current page
+     *
+     * @param position Position
+     */
+    void setCurrentPage(int position);
+
+    /**
+     * Get current page
+     *
+     * @return current page
+     */
+    int getCurrentPage();
 
 }

@@ -60,8 +60,8 @@ public class SettingFragment extends BaseRootFragment<SettingPresent> implements
     @Override
     protected void initEventAndData() {
         cacheFile = new File(Constants.PATH_CACHE);
-        mCbSettingNight.setChecked(mPresent.getNightModeState());
-        Log.i("test", mPresent.getNightModeState() + "");
+        mCbSettingNight.setChecked(mPresenter.getNightModeState());
+        Log.i("test", mPresenter.getNightModeState() + "");
         mCbSettingCache.setOnCheckedChangeListener(this);
         mCbSettingImage.setOnCheckedChangeListener(this);
         mCbSettingNight.setOnCheckedChangeListener(this);
@@ -92,9 +92,9 @@ public class SettingFragment extends BaseRootFragment<SettingPresent> implements
 
                 break;
             case R.id.cb_setting_night:
-                mPresent.setNightModeState(b);
+                mPresenter.setNightModeState(b);
                 Rxbus.getDefault().post(new NightModeEvent(b));
-                Log.i("test", mPresent.getNightModeState() + "");
+                Log.i("test", mPresenter.getNightModeState() + "");
                 break;
         }
     }

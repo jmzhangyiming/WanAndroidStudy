@@ -19,7 +19,7 @@ import mrzhang.com.wanandroid.study.base.view.AbstractView;
 public abstract class BaseFragment<T extends AbstractPresent> extends AbstractSimpleFragment implements AbstractView {
 
     @Inject
-    protected T mPresent;
+    protected T mPresenter;
 
     @Override
     public void onAttach(Context context) {
@@ -30,24 +30,24 @@ public abstract class BaseFragment<T extends AbstractPresent> extends AbstractSi
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (mPresent != null) {
-            mPresent.attachView(this);
+        if (mPresenter != null) {
+            mPresenter.attachView(this);
         }
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (mPresent != null) {
-            mPresent.detach();
+        if (mPresenter != null) {
+            mPresenter.detachView();
         }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        if (mPresent != null) {
-            mPresent = null;
+        if (mPresenter != null) {
+            mPresenter = null;
         }
     }
 

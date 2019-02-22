@@ -46,6 +46,10 @@ dependencies {
     implementation rootProject.ext.dependencies["lottie"]
     implementation rootProject.ext.dependencies["ByeBurger"]
     implementation rootProject.ext.dependencies["logger"]
+    implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+    implementation rootProject.ext.dependencies["stetho"]
+    implementation rootProject.ext.dependencies["stetho-okhttp3"]
+    implementation rootProject.ext.dependencies["PersistentCookieJar"]
 
     //rx
     implementation rootProject.ext.dependencies["rxjava"]
@@ -56,4 +60,15 @@ dependencies {
     // ui
     implementation rootProject.ext.dependencies["SmartRefreshLayout"]
     implementation rootProject.ext.dependencies["SmartRefreshHeader"]
+    implementation rootProject.ext.dependencies["banner"]
+
+
+    // net
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["converter-gson"]
+    implementation rootProject.ext.dependencies["adapter-rxjava2"]
+    implementation rootProject.ext.dependencies["okhttp"]
+    implementation rootProject.ext.dependencies["logging-interceptor"]
+    implementation rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide_compiler"]
 }

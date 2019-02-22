@@ -15,7 +15,7 @@
     <color name="yellow">#f2efef</color>
     <color name="delete_text">#62646b</color>
     <color name="comment_line">#202124</color>
-
+    <color name="colorPrimaryOverlay">#ffffff</color>
 
 
 </resources>

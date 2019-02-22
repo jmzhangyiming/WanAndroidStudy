@@ -26,7 +26,7 @@ public abstract class BaseActivity<T extends AbstractPresent> extends AbstractSi
     DispatchingAndroidInjector<Fragment> mFragmentDispatchingAndroidInjector;
 
     @Inject
-    protected T mPresent;
+    protected T mPresenter;
 
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
@@ -41,17 +41,17 @@ public abstract class BaseActivity<T extends AbstractPresent> extends AbstractSi
 
     @Override
     protected void onViewCreated() {
-        if (null != mPresent) {
-            mPresent.attachView(this);
+        if (null != mPresenter) {
+            mPresenter.attachView(this);
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (null != mPresent) {
-            mPresent.detach();
-            mPresent = null;
+        if (null != mPresenter) {
+            mPresenter.detachView();
+            mPresenter = null;
         }
     }
 
@@ -68,5 +68,10 @@ public abstract class BaseActivity<T extends AbstractPresent> extends AbstractSi
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
         recreate();
+    }
+
+    @Override
+    public void showError() {
+
     }
 }

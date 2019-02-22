@@ -22,4 +22,9 @@ public interface AbstractView {
      */
     void useNightMode(boolean isNightMode);
 
+    /**
+     * Show error
+     */
+    void showError();
+
 }

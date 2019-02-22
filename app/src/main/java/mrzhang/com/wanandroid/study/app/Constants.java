@@ -46,4 +46,6 @@ public class Constants {
 
     public static final String ARG_PARAM2 = "param2";
 
+    public static final String CURRENT_PAGE = "current_page";
+
 }

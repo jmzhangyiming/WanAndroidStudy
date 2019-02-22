@@ -17,6 +17,9 @@
     <string name="setting_feedback">Feedback</string>
     <string name="setting_clear">Clear cache</string>
 
+    //Main Pager
+    <string name="failed_to_obtain_banner_data">Failed to obtain advertising data</string>
+    <string name="failed_to_obtain_article_list">Failed gets the article list data</string>
 
     // commen
     <string name="home_pager">Home pager</string>
@@ -28,4 +31,9 @@
     <string name="action_search">Search</string>
     <string name="navigation_drawer_open">Open drawer</string>
     <string name="navigation_drawer_close">Close drawer</string>
+    <string name="http_error">network anomaly</string>
+    <string name="unKnown_error">unKnown error</string>
+
+
+
 </resources>

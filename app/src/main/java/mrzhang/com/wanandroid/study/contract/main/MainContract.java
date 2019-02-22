@@ -20,6 +20,11 @@ public interface MainContract {
          */
         void setNightModeState(boolean b);
 
-
+        /**
+         * Set current page
+         *
+         * @param page current page
+         */
+        void setCurrentPage(int page);
     }
 }

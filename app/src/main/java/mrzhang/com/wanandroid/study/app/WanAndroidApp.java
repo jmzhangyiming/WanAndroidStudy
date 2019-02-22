@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 
+import com.facebook.stetho.Stetho;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -11,6 +13,7 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import mrzhang.com.wanandroid.study.di.component.DaggerAppComponent;
 import mrzhang.com.wanandroid.study.di.module.AppModule;
+import mrzhang.com.wanandroid.wanandroidstudy.BuildConfig;
 
 /**
  * @author mrzhang
@@ -47,5 +50,8 @@ public class WanAndroidApp extends Application implements HasActivityInjector{
 
         instance = this;
 
+        if (BuildConfig.DEBUG) {
+            Stetho.initializeWithDefaults(this);
+        }
     }
 }

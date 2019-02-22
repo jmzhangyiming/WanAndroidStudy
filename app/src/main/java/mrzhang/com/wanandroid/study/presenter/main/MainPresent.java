@@ -33,7 +33,7 @@ public class MainPresent extends BasePresent<MainContract.View> implements MainC
     }
 
     @Override
-    public void detach() {
+    public void detachView() {
 
     }
 
@@ -62,4 +62,11 @@ public class MainPresent extends BasePresent<MainContract.View> implements MainC
     public void setNightModeState(boolean b) {
         mDataManager.setNightModeState(b);
     }
+
+    @Override
+    public void setCurrentPage(int page) {
+        mDataManager.setCurrentPage(page);
+    }
+
+
 }

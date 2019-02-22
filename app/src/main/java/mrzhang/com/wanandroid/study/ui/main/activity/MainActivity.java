@@ -1,6 +1,7 @@
 package mrzhang.com.wanandroid.study.ui.main.activity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -35,6 +36,7 @@ import mrzhang.com.wanandroid.wanandroidstudy.R;
 import mrzhang.com.wanandroid.study.base.activity.BaseActivity;
 import mrzhang.com.wanandroid.study.contract.main.MainContract;
 import mrzhang.com.wanandroid.study.presenter.main.MainPresent;
+import retrofit2.http.PATCH;
 
 /**
   * @author zhangyiming
@@ -76,7 +78,7 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
         super.onCreate(savedInstanceState);
         mFragments = new ArrayList<>();
         if (savedInstanceState == null) {
-            mPresent.setNightModeState(false);
+            mPresenter.setNightModeState(false);
             initPager(false, Constants.TYPE_MAIN_PAGER);
         } else {
             mBottomNavigationView.setSelectedItemId(R.id.tab_main_pager);
@@ -95,6 +97,7 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
     }
 
     private void init() {
+        mPresenter.setCurrentPage(Constants.TYPE_MAIN_PAGER);
         initNavigationView();
         initBottomNavigationView();
         initDrawerLayout();
@@ -135,6 +138,33 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
 
     private void initBottomNavigationView() {
         BottomNavigationViewHelper.disableShiftMode(mBottomNavigationView);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.tab_main_pager:
+                    loadPager(getString(R.string.home_pager), 0,
+                            mMainPagerFragment, Constants.TYPE_MAIN_PAGER);
+                    break;
+                case R.id.tab_knowledge_hierarchy:
+                    loadPager(getString(R.string.knowledge_hierarchy), 1,
+                            mKnowledgeHierarchyFragment, Constants.TYPE_KNOWLEDGE);
+                    break;
+                case R.id.tab_wx_article:
+                    loadPager(getString(R.string.wx_article), 2,
+                            mWxArticleFragment, Constants.TYPE_WX_ARTICLE);
+                    break;
+                case R.id.tab_navigation:
+                    loadPager(getString(R.string.navigation), 3,
+                            mNavigationFragment, Constants.TYPE_NAVIGATION);
+                    break;
+                case R.id.tab_project:
+                    loadPager(getString(R.string.project), 4,
+                            mProjectFragment, Constants.TYPE_PROJECT);
+                    break;
+                default:
+                    break;
+            }
+            return true;
+        });
     }
 
     private void initNavigationView() {
@@ -241,5 +271,11 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
         } else {
             ActivityCompat.finishAfterTransition(this);
         }
+    }
+
+    private void loadPager(String tittle, int position, BaseFragment mFragment, int pagerType) {
+        mTitleTv.setText(tittle);
+        switchFragment(position);
+        mPresenter.setCurrentPage(pagerType);
     }
 }

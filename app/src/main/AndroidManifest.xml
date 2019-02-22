@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="mrzhang.com.wanandroid.wanandroidstudy">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name="mrzhang.com.wanandroid.study.app.WanAndroidApp"
         android:icon="@mipmap/ic_launcher"

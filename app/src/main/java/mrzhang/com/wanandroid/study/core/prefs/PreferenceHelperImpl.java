@@ -30,4 +30,15 @@ public class PreferenceHelperImpl implements PreferenceHelper {
     public void setNightModeState(boolean b) {
         mPreferences.edit().putBoolean(Constants.NIGHT_MODE_STATE, b).apply();
     }
+
+    @Override
+    public void setCurrentPage(int position) {
+        mPreferences.edit().putInt(Constants.CURRENT_PAGE, position).apply();
+    }
+
+    @Override
+    public int getCurrentPage() {
+        return mPreferences.getInt(Constants.CURRENT_PAGE, 0);
+    }
+
 }

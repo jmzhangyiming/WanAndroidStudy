@@ -18,7 +18,7 @@ public interface AbstractPresent<T extends AbstractView> {
     /**
      * 回收view
      */
-    void detach();
+    void detachView();
 
     /**
      * Get night mode state
@@ -26,4 +26,11 @@ public interface AbstractPresent<T extends AbstractView> {
      * @return if is night mode
      */
     boolean getNightModeState();
+
+    /**
+     * Get current page
+     *
+     * @return current page
+     */
+    int getCurrentPage();
 }

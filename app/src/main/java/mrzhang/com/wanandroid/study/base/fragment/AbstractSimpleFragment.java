@@ -48,7 +48,9 @@ public abstract class AbstractSimpleFragment extends SupportFragment {
      */
     protected abstract int getLayoutId();
 
-    protected abstract void initView();
+    protected void initView() {
+
+    }
 
     protected abstract void initEventAndData();
 

@@ -25,13 +25,21 @@ public class BasePresent<T extends AbstractView> implements AbstractPresent<T> {
     }
 
     @Override
-    public void detach() {
+    public void detachView() {
         this.mView = null;
+        if (compositeDisposable != null) {
+            compositeDisposable.clear();
+        }
     }
 
     @Override
     public boolean getNightModeState() {
         return mDataManager.getNightModeState();
+    }
+
+    @Override
+    public int getCurrentPage() {
+        return mDataManager.getCurrentPage();
     }
 
     protected void addSubscribe(Disposable disposable) {
@@ -40,5 +48,7 @@ public class BasePresent<T extends AbstractView> implements AbstractPresent<T> {
         }
         compositeDisposable.add(disposable);
     }
+
+
 
 }

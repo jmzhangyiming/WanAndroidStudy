@@ -17,4 +17,8 @@
     <color name="delete_text">#cccccc</color>
     <color name="comment_line">#dddddd</color>
     <color name="black">#333333</color>
+    <color name="colorPrimaryOverlay">#00abff</color>
+    <color name="light_deep_red">#f9382a</color>
+    <color name="light_green">#3fc75f</color>
+    <color name="light_red">#e26d2e</color>
 </resources>

@@ -9,6 +9,7 @@ import mrzhang.com.wanandroid.study.di.module.AbstractAllActivityModule;
 import mrzhang.com.wanandroid.study.app.WanAndroidApp;
 import mrzhang.com.wanandroid.study.di.module.AbstractAllFragmentModule;
 import mrzhang.com.wanandroid.study.di.module.AppModule;
+import mrzhang.com.wanandroid.study.di.module.HttpModule;
 
 /**
  * @author mrzhang
@@ -20,7 +21,8 @@ import mrzhang.com.wanandroid.study.di.module.AppModule;
         AndroidSupportInjectionModule.class,
         AbstractAllActivityModule.class,
         AbstractAllFragmentModule.class,
-        AppModule.class})
+        AppModule.class,
+        HttpModule.class})
 public interface AppComponent {
     /**
      * 注入Application实例
