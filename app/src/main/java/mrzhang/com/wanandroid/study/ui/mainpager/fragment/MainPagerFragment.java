@@ -1,6 +1,7 @@
 package mrzhang.com.wanandroid.study.ui.mainpager.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -100,6 +103,11 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresent> implem
             mPresenter.autoRefresh(false);
             refreshLayout.finishRefresh(1000);
         });
+
+        mRefreshLayout.setOnLoadMoreListener(refreshLayout -> {
+            mPresenter.loadMore();
+            refreshLayout.finishLoadMore(1000);
+        });
     }
 
 
@@ -144,6 +152,15 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresent> implem
         if (mAdapter == null) {
             return;
         }
+        if (isRefresh) {
+            mFeedArticleDataList = feedArticleListData.getDatas();
+            mAdapter.replaceData(feedArticleListData.getDatas());
+        } else {
+            mFeedArticleDataList.addAll(feedArticleListData.getDatas());
+            mAdapter.addData(feedArticleListData.getDatas());
+        }
 
     }
+
+
 }

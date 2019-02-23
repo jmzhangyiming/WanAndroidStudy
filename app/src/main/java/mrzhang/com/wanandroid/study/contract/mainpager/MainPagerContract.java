@@ -53,5 +53,15 @@ public interface MainPagerContract {
          */
         void getFeedArticleList(boolean isShowError);
 
+        /**
+         * Load more
+         */
+        void loadMore();
+
+        /**
+         * Load more data
+         */
+        void loadMoreData();
+
     }
 }

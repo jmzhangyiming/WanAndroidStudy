@@ -70,4 +70,26 @@ public class MainPagerPresent extends BasePresent<MainPagerContract.View> implem
                     }));
     }
 
+    @Override
+    public void loadMore() {
+        mCurrentPage ++;
+        isRefresh = false;
+        loadMoreData();
+    }
+
+    @Override
+    public void loadMoreData() {
+        addSubscribe(mDataManager.getFeedArticleList(mCurrentPage)
+                .compose(RxUtils.rxSchedulerHelper())
+                .compose(RxUtils.handleResult())
+                .subscribeWith(new BaseObserver<FeedArticleListData>(mView,
+                        WanAndroidApp.getInstance().getString(R.string.failed_to_obtain_article_list),
+                        false) {
+                    @Override
+                    public void onNext(FeedArticleListData feedArticleListData) {
+                        mView.showArticleList(feedArticleListData, isRefresh);
+                    }
+                }));
+    }
+
 }
