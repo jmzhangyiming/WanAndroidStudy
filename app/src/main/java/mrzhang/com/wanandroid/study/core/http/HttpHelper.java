@@ -6,6 +6,8 @@ import io.reactivex.Observable;
 import mrzhang.com.wanandroid.study.core.bean.BaseResponse;
 import mrzhang.com.wanandroid.study.core.bean.main.banner.BannerData;
 import mrzhang.com.wanandroid.study.core.bean.main.collect.FeedArticleListData;
+import mrzhang.com.wanandroid.study.core.bean.main.login.LoginData;
+import retrofit2.http.GET;
 
 /**
  * @author mrzhang
@@ -29,4 +31,30 @@ public interface HttpHelper {
      */
     Observable<BaseResponse<FeedArticleListData>> getFeedArticleList(int pageNum);
 
+    /**
+     * 登陆
+     * http://www.wanandroid.com/user/login
+     *
+     * @param username user name
+     * @param password password
+     * @return 项目类别数据
+     */
+    Observable<BaseResponse<LoginData>> getLoginData(String username, String password);
+
+    /**
+     * 注册
+     * http://www.wanandroid.com/user/register
+     *
+     * @param username user name
+     * @param password password
+     * @param rePassword re password
+     * @return 登陆数据
+     */
+    Observable<BaseResponse<LoginData>> getRegisterData(String username, String password, String rePassword);
+
+    /**
+     * 退出登录
+     * http://www.wanandroid.com/user/logout/json
+     */
+    Observable<BaseResponse<LoginData>> logout();
 }

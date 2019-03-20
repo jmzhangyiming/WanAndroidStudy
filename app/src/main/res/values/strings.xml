@@ -6,6 +6,20 @@
     <string name="my_collect">Collect</string>
     <string name="about_us">About Us</string>
     <string name="logout">Logout</string>
+    <string name="login_account_tint">Please enter user name</string>
+    <string name="login_password_tint">Please enter password</string>
+    <string name="or">Or</string>
+    <string name="register">Sign Up</string>
+    <string name="account_password_null_tint">The user name or password cannot be empty</string>
+    <string name="login_fail">Login fail</string>
+    <string name="login_success">Login Success</string>
+    <string name="register_password_hint">Enter password</string>
+    <string name="register_account_hint">Email/Phone number</string>
+    <string name="register_confirm_password_hint">Confirm password</string>
+    <string name="register_fail">Register fail</string>
+    <string name="register_success">Register success</string>
+    <string name="logout_tint">Log out?</string>
+    <string name="logout_fail">Logout fail</string>
 
     // setting
     <string name="setting">Setting</string>
@@ -33,6 +47,8 @@
     <string name="navigation_drawer_close">Close drawer</string>
     <string name="http_error">network anomaly</string>
     <string name="unKnown_error">unKnown error</string>
+    <string name="ok">OK</string>
+    <string name="no">NO</string>
 
 
 

@@ -23,6 +23,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="mrzhang.com.wanandroid.study.ui.main.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:exported="false" />
+        <activity android:name="mrzhang.com.wanandroid.study.ui.main.activity.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:exported="false"
+            android:windowSoftInputMode="stateVisible"/>
+
     </application>
 
 </manifest>

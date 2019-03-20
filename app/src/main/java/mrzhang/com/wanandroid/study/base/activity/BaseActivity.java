@@ -74,4 +74,19 @@ public abstract class BaseActivity<T extends AbstractPresent> extends AbstractSi
     public void showError() {
 
     }
+
+    @Override
+    public void showLoginView() {
+
+    }
+
+    @Override
+    public void showLogoutView() {
+
+    }
+
+    @Override
+    public void showSnackBar(String message) {
+        CommonUtils.showSnackMessage(this, message);
+    }
 }

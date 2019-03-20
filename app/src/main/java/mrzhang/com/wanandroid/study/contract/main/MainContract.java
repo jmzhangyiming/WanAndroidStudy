@@ -9,6 +9,15 @@ import mrzhang.com.wanandroid.study.base.view.AbstractView;
  */
 public interface MainContract {
     interface View extends AbstractView {
+        /**
+         * Show auto login view
+         */
+        void showAutoLoginView();
+
+        /**
+         * Show logout success
+         */
+        void showLogoutSuccess();
 
     }
 
@@ -26,5 +35,10 @@ public interface MainContract {
          * @param page current page
          */
         void setCurrentPage(int page);
+
+        /**
+         * logout
+         */
+        void logout();
     }
 }

@@ -6,6 +6,7 @@ import io.reactivex.Observable;
 import mrzhang.com.wanandroid.study.core.bean.BaseResponse;
 import mrzhang.com.wanandroid.study.core.bean.main.banner.BannerData;
 import mrzhang.com.wanandroid.study.core.bean.main.collect.FeedArticleListData;
+import mrzhang.com.wanandroid.study.core.bean.main.login.LoginData;
 import mrzhang.com.wanandroid.study.core.db.DbHelper;
 import mrzhang.com.wanandroid.study.core.http.HttpHelper;
 import mrzhang.com.wanandroid.study.core.prefs.PreferenceHelper;
@@ -47,6 +48,36 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper{
     }
 
     @Override
+    public void setLoginAccount(String account) {
+        mPreferenceHelper.setLoginAccount(account);
+    }
+
+    @Override
+    public void setLoginPassword(String password) {
+        mPreferenceHelper.setLoginPassword(password);
+    }
+
+    @Override
+    public String getLoginAccount() {
+        return mPreferenceHelper.getLoginAccount();
+    }
+
+    @Override
+    public String getLoginPassword() {
+        return mPreferenceHelper.getLoginPassword();
+    }
+
+    @Override
+    public void setLoginStatus(boolean isLogin) {
+        mPreferenceHelper.setLoginStatus(isLogin);
+    }
+
+    @Override
+    public boolean getLoginStatus() {
+        return mPreferenceHelper.getLoginStatus();
+    }
+
+    @Override
     public Observable<BaseResponse<List<BannerData>>> getBannerData() {
         return mHttpHelper.getBannerData();
     }
@@ -56,7 +87,20 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper{
         return mHttpHelper.getFeedArticleList(pageNum);
     }
 
+    @Override
+    public Observable<BaseResponse<LoginData>> getLoginData(String username, String password) {
+        return mHttpHelper.getLoginData(username, password);
+    }
 
+    @Override
+    public Observable<BaseResponse<LoginData>> getRegisterData(String username, String password, String rePassword) {
+        return mHttpHelper.getRegisterData(username, password, rePassword);
+    }
+
+    @Override
+    public Observable<BaseResponse<LoginData>> logout() {
+        return mHttpHelper.logout();
+    }
 
 
 }

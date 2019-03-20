@@ -2,13 +2,18 @@ package mrzhang.com.wanandroid.study.presenter.main;
 
 import javax.inject.Inject;
 
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Predicate;
 import mrzhang.com.wanandroid.study.app.WanAndroidApp;
 import mrzhang.com.wanandroid.study.base.present.BasePresent;
 import mrzhang.com.wanandroid.study.component.Rxbus;
 import mrzhang.com.wanandroid.study.contract.main.MainContract;
 import mrzhang.com.wanandroid.study.core.DataManager;
+import mrzhang.com.wanandroid.study.core.bean.main.login.LoginData;
+import mrzhang.com.wanandroid.study.core.event.LoginEvent;
 import mrzhang.com.wanandroid.study.core.event.NightModeEvent;
 import mrzhang.com.wanandroid.study.utils.RxUtils;
+import mrzhang.com.wanandroid.study.widget.BaseObserver;
 import mrzhang.com.wanandroid.study.widget.BaseSubscribe;
 import mrzhang.com.wanandroid.wanandroidstudy.R;
 
@@ -16,12 +21,12 @@ import mrzhang.com.wanandroid.wanandroidstudy.R;
  * @author mrzhang
  * @date 2019/1/9
  */
-public class MainPresent extends BasePresent<MainContract.View> implements MainContract.Presenter {
+public class MainPresenter extends BasePresent<MainContract.View> implements MainContract.Presenter {
 
     private DataManager mDataManager;
 
     @Inject
-    MainPresent(DataManager dataManager) {
+    MainPresenter(DataManager dataManager) {
         super(dataManager);
         this.mDataManager = dataManager;
     }
@@ -55,6 +60,11 @@ public class MainPresent extends BasePresent<MainContract.View> implements MainC
                 })
         );
 
+       addSubscribe(Rxbus.getDefault().toFlowable(LoginEvent.class)
+               .compose(RxUtils.rxFlSchedulerHelper())
+               .filter(loginEvent -> loginEvent.isLogin())
+               .subscribe(loginEvent -> mView.showLoginView()));
+
 
     }
 
@@ -66,6 +76,25 @@ public class MainPresent extends BasePresent<MainContract.View> implements MainC
     @Override
     public void setCurrentPage(int page) {
         mDataManager.setCurrentPage(page);
+    }
+
+    @Override
+    public void logout() {
+        addSubscribe(mDataManager.logout()
+                .compose(RxUtils.rxSchedulerHelper())
+                .compose(RxUtils.handleLogoutResult())
+                .subscribeWith(new BaseObserver<LoginData>(mView, WanAndroidApp.getInstance().getString(R.string.logout_fail)) {
+
+                    @Override
+                    public void onNext(LoginData loginData) {
+                        setLoginAccount("");
+                        setLoginPassword("");
+                        setLoginStatus(false);
+//                        CookiesManager.clearAllCookies();
+                        Rxbus.getDefault().post(new LoginEvent(false));
+                        mView.showLogoutSuccess();
+                    }
+                }));
     }
 
 

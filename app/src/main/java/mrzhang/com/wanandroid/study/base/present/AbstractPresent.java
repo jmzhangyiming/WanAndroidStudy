@@ -1,5 +1,6 @@
 package mrzhang.com.wanandroid.study.base.present;
 
+import io.reactivex.disposables.Disposable;
 import mrzhang.com.wanandroid.study.base.view.AbstractView;
 
 /**
@@ -33,4 +34,46 @@ public interface AbstractPresent<T extends AbstractView> {
      * @return current page
      */
     int getCurrentPage();
+
+    /**
+     * Set login status
+     *
+     * @param loginStatus login status
+     */
+    void setLoginStatus(boolean loginStatus);
+
+    /**
+     * Get login status
+     *
+     * @return if is login status
+     */
+    boolean getLoginStatus();
+
+    /**
+     * Get login account
+     *
+     * @return login account
+     */
+    String getLoginAccount();
+
+    /**
+     * Set login status
+     *
+     * @param account account
+     */
+    void setLoginAccount(String account);
+
+    /**
+     * Set login password
+     *
+     * @param password password
+     */
+    void setLoginPassword(String password);
+
+    /**
+     * Add rxBing subscribe manager
+     *
+     * @param disposable Disposable
+     */
+    void addRxBindingSubscribe(Disposable disposable);
 }

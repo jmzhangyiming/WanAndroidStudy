@@ -10,12 +10,12 @@ import mrzhang.com.wanandroid.study.core.DataManager;
  * @author mrzhang
  * @date 2019/1/13
  */
-public class SettingPresent extends BasePresent<SettingContract.View> implements SettingContract.Prensent {
+public class SettingPresenter extends BasePresent<SettingContract.View> implements SettingContract.Prensent {
 
     private DataManager mDataManager;
 
     @Inject
-    SettingPresent(DataManager dataManager) {
+    SettingPresenter(DataManager dataManager) {
         super(dataManager);
         this.mDataManager = dataManager;
     }

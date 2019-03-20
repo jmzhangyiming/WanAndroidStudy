@@ -27,4 +27,21 @@ public interface AbstractView {
      */
     void showError();
 
+    /**
+     * Show login view
+     */
+    void showLoginView();
+
+    /**
+     * Show logout view
+     */
+    void showLogoutView();
+
+    /**
+     * Show snackBar
+     *
+     * @param message Message
+     */
+    void showSnackBar(String message);
+
 }

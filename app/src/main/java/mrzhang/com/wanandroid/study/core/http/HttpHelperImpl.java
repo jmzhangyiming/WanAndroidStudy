@@ -8,6 +8,7 @@ import io.reactivex.Observable;
 import mrzhang.com.wanandroid.study.core.bean.BaseResponse;
 import mrzhang.com.wanandroid.study.core.bean.main.banner.BannerData;
 import mrzhang.com.wanandroid.study.core.bean.main.collect.FeedArticleListData;
+import mrzhang.com.wanandroid.study.core.bean.main.login.LoginData;
 import mrzhang.com.wanandroid.study.core.http.api.GeeksApis;
 
 /**
@@ -32,6 +33,21 @@ public class HttpHelperImpl implements HttpHelper {
     @Override
     public Observable<BaseResponse<FeedArticleListData>> getFeedArticleList(int pageNum) {
         return mGeeksApis.getFeedArticleList(pageNum);
+    }
+
+    @Override
+    public Observable<BaseResponse<LoginData>> getLoginData(String username, String password) {
+        return mGeeksApis.getLoginData(username, password);
+    }
+
+    @Override
+    public Observable<BaseResponse<LoginData>> getRegisterData(String username, String password, String rePassword) {
+        return mGeeksApis.getRegisterData(username, password, rePassword);
+    }
+
+    @Override
+    public Observable<BaseResponse<LoginData>> logout() {
+        return mGeeksApis.logout();
     }
 
 

@@ -48,4 +48,18 @@ public class Constants {
 
     public static final String CURRENT_PAGE = "current_page";
 
+    /**
+     * Shared Preference key
+     */
+    public static final String ACCOUNT = "account";
+
+    public static final String PASSWORD = "password";
+
+    public static final String LOGIN_STATUS = "login_status";
+
+    /**
+     * Avoid double click time area
+     */
+    public static final long CLICK_TIME_AREA = 1000;
+
 }

@@ -7,6 +7,20 @@
     <string name="my_collect">收藏</string>
     <string name="about_us">关于我们</string>
     <string name="logout">退出登录</string>
+    <string name="login_account_tint">请输入用户名</string>
+    <string name="login_password_tint">请输入密码</string>
+    <string name="or">或</string>
+    <string name="register">注册</string>
+    <string name="account_password_null_tint">用户名或密码不能为空</string>
+    <string name="login_fail">登录失败ヽ(≧Д≦)ノ</string>
+    <string name="login_success">登录成功n(*≧▽≦*)n</string>
+    <string name="register_password_hint">输入密码</string>
+    <string name="register_account_hint">邮箱/手机号</string>
+    <string name="register_confirm_password_hint">确认密码</string>
+    <string name="register_fail">注册失败ヽ(≧Д≦)ノ</string>
+    <string name="register_success">注册成功</string>
+    <string name="logout_tint">退出登录?</string>
+    <string name="logout_fail">退出登录失败</string>
 
     // 设置
     <string name="setting">设置</string>
@@ -34,4 +48,7 @@
     <string name="navigation_drawer_close">关闭侧栏</string>
     <string name="http_error">网络异常</string>
     <string name="unKnown_error">未知错误</string>
+    <string name="ok">是</string>
+    <string name="no">否</string>
+
 </resources>

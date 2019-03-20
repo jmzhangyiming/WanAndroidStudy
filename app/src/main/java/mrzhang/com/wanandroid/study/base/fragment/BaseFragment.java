@@ -62,4 +62,24 @@ public abstract class BaseFragment<T extends AbstractPresent> extends AbstractSi
     public void useNightMode(boolean isNightMode) {
 
     }
+
+    @Override
+    public void showLoginView() {
+
+    }
+
+    @Override
+    public void showLogoutView() {
+
+    }
+
+    @Override
+    public void showError() {
+
+    }
+
+    @Override
+    public void showSnackBar(String message) {
+
+    }
 }

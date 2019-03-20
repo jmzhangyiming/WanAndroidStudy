@@ -42,6 +42,36 @@ public class BasePresent<T extends AbstractView> implements AbstractPresent<T> {
         return mDataManager.getCurrentPage();
     }
 
+    @Override
+    public void setLoginStatus(boolean loginStatus) {
+        mDataManager.setLoginStatus(loginStatus);
+    }
+
+    @Override
+    public boolean getLoginStatus() {
+        return mDataManager.getLoginStatus();
+    }
+
+    @Override
+    public String getLoginAccount() {
+        return mDataManager.getLoginAccount();
+    }
+
+    @Override
+    public void setLoginAccount(String account) {
+        mDataManager.setLoginAccount(account);
+    }
+
+    @Override
+    public void setLoginPassword(String password) {
+        mDataManager.setLoginPassword(password);
+    }
+
+    @Override
+    public void addRxBindingSubscribe(Disposable disposable) {
+        addSubscribe(disposable);
+    }
+
     protected void addSubscribe(Disposable disposable) {
         if (null == compositeDisposable) {
             compositeDisposable = new CompositeDisposable();

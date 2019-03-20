@@ -1,5 +1,6 @@
 package mrzhang.com.wanandroid.study.ui.main.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import mrzhang.com.wanandroid.study.app.Constants;
 import mrzhang.com.wanandroid.study.base.fragment.BaseFragment;
+import mrzhang.com.wanandroid.study.presenter.main.MainPresenter;
 import mrzhang.com.wanandroid.study.ui.hierarchy.fragment.KnowledgeHierarchyFragment;
 import mrzhang.com.wanandroid.study.ui.main.fragment.CollectFragment;
 import mrzhang.com.wanandroid.study.ui.main.fragment.SettingFragment;
@@ -32,17 +34,16 @@ import mrzhang.com.wanandroid.study.ui.navigation.fragment.NavigationFragment;
 import mrzhang.com.wanandroid.study.ui.project.fragment.ProjectFragment;
 import mrzhang.com.wanandroid.study.ui.wx.fragment.WxArticleFragment;
 import mrzhang.com.wanandroid.study.utils.BottomNavigationViewHelper;
+import mrzhang.com.wanandroid.study.utils.CommonAlertDialog;
 import mrzhang.com.wanandroid.wanandroidstudy.R;
 import mrzhang.com.wanandroid.study.base.activity.BaseActivity;
 import mrzhang.com.wanandroid.study.contract.main.MainContract;
-import mrzhang.com.wanandroid.study.presenter.main.MainPresent;
-import retrofit2.http.PATCH;
 
 /**
   * @author zhangyiming
   * @date 2019/1/4
   */
-public class MainActivity extends BaseActivity<MainPresent> implements MainContract.View {
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
@@ -169,6 +170,11 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
 
     private void initNavigationView() {
         mUsTv = mNavigationView.getHeaderView(0).findViewById(R.id.nav_header_login_tv);
+        if (mPresenter.getLoginStatus()) {
+            showLoginView();
+        } else {
+            showLogoutView();
+        }
         mNavigationView.getMenu().findItem(R.id.nav_item_wan_android)
                 .setOnMenuItemClickListener(menuItem -> {
                     startMainPager();
@@ -177,6 +183,11 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
         mNavigationView.getMenu().findItem(R.id.nav_item_setting)
                 .setOnMenuItemClickListener(menuItem -> {
                     startSettingFragment();
+                    return true;
+                });
+        mNavigationView.getMenu().findItem(R.id.nav_item_logout)
+                .setOnMenuItemClickListener(menuItem -> {
+                    logout();
                     return true;
                 });
 
@@ -278,4 +289,45 @@ public class MainActivity extends BaseActivity<MainPresent> implements MainContr
         switchFragment(position);
         mPresenter.setCurrentPage(pagerType);
     }
+
+    @Override
+    public void showAutoLoginView() {
+        showLoginView();
+    }
+
+    @Override
+    public void showLogoutSuccess() {
+        CommonAlertDialog.newInstance().cancelDialog();
+        mNavigationView.getMenu().findItem(R.id.nav_item_logout).setVisible(false);
+        startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    @Override
+    public void showLoginView() {
+        if (mNavigationView == null) {
+            return;
+        }
+        mUsTv = mNavigationView.getHeaderView(0).findViewById(R.id.nav_header_login_tv);
+        mUsTv.setText(mPresenter.getLoginAccount());
+        mUsTv.setOnClickListener(null);
+        mNavigationView.getMenu().findItem(R.id.nav_item_logout).setVisible(true);
+    }
+
+    @Override
+    public void showLogoutView() {
+        mUsTv.setText(R.string.login_in);
+        mUsTv.setOnClickListener(view -> startActivity(new Intent(this, LoginActivity.class)));
+        if (mNavigationView == null) {
+            return;
+        }
+        mNavigationView.getMenu().findItem(R.id.nav_item_logout).setVisible(false);
+    }
+
+    private void logout() {
+        CommonAlertDialog.newInstance().showDialog(this, getString(R.string.logout_tint),
+                getString(R.string.ok), getString(R.string.no),
+                view -> mPresenter.logout(),
+                view -> CommonAlertDialog.newInstance().cancelDialog());
+    }
+
 }
